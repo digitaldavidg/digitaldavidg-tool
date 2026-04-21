@@ -1,0 +1,140 @@
+/* Minimal placeholder stylesheet for new /learn/, /tool/, /about/ pages.
+   The existing root index.html is not in this repo, so these pages ship with
+   a neutral style meant to be replaced once the site's visual language is
+   available. Keep structure; swap tokens. */
+
+:root {
+  --ink: #111;
+  --ink-muted: #555;
+  --rule: #e5e5e5;
+  --accent: #0b3b6f;
+  --bg: #fff;
+  --max-width: 720px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { text-decoration: none; }
+
+.site-header,
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 24px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-header .brand {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.site-nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+
+.site-nav a { color: var(--ink-muted); text-decoration: none; }
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--ink); }
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.breadcrumbs a { color: var(--ink-muted); }
+.breadcrumbs span[aria-current="page"] { color: var(--ink); }
+
+h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 40px 0 12px;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 16px; }
+
+.lede {
+  font-size: 19px;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+
+.pillar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.pillar-list li {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+
+.pillar-list a { color: var(--ink); text-decoration: none; font-weight: 600; }
+.pillar-list a:hover { color: var(--accent); }
+.pillar-list p { margin: 6px 0 0; color: var(--ink-muted); font-size: 15px; }
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--ink-muted);
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.site-footer a { color: var(--ink-muted); }
+
+.placeholder-note {
+  background: #fffbea;
+  border: 1px solid #f1d98f;
+  color: #6b4e00;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin: 24px 0;
+}
