@@ -12,7 +12,11 @@
   <meta property="og:description" content="An interactive tool for mapping SEO entities and generating content angles from their relationships.">
   <meta property="og:site_name" content="Digital David G">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/site.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,7 +44,6 @@
     "url": "https://digitaldavidg.com/tool/",
     "name": "SEO Knowledge Graph Tool",
     "isPartOf": { "@id": "https://digitaldavidg.com/#website" },
-    "primaryImageOfPage": null,
     "mainEntity": { "@id": "https://digitaldavidg.com/tool/#app" }
   }
   </script>
@@ -56,29 +59,104 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/">Digital David G</a>
-    <nav class="site-nav" aria-label="Primary">
+
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">digital<span>davidg</span></a>
+    <div class="nav-links">
       <a href="/tool/" aria-current="page">Tool</a>
       <a href="/learn/">Learn</a>
       <a href="/about/">About</a>
-    </nav>
-  </header>
+      <a href="/#connect" class="nav-cta">Let's talk →</a>
+    </div>
+  </nav>
 
   <main>
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a> / <span aria-current="page">Tool</span>
-    </nav>
+    <section class="page-hero">
+      <div class="page-hero-grid"></div>
+      <div class="page-hero-glow"></div>
+      <div class="page-hero-inner">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span class="sep">/</span><span aria-current="page">Tool</span>
+        </nav>
+        <div class="section-label">// tool</div>
+        <h1 class="page-title">A knowledge graph tool for <em>SEO &amp; AI search.</em></h1>
+        <p class="page-lede">Describe a domain. Get a visual map of its entities and the relationships between them. Pick any two entities and generate content angles you'd never have found in a keyword tool.</p>
+        <div class="status-badge status-placeholder">Landing page scaffolded · interactive graph &amp; pre-built domains ship in Sprint 2</div>
+        <div class="btn-row">
+          <a href="/learn/" class="btn-secondary">Browse the Learn hub</a>
+          <a href="/#connect" class="btn-primary">Talk to David →</a>
+        </div>
+      </div>
+    </section>
 
-    <h1>SEO Knowledge Graph Tool</h1>
-    <p class="lede">Describe a domain. Get a visual map of its entities and the relationships between them. Pick any two entities and generate content angles you'd never have found in a keyword tool.</p>
+    <section>
+      <div class="section-inner">
+        <div class="section-label">// pre-built domains</div>
+        <h2 class="section-title">Seven graphs, ready on launch.</h2>
+        <p class="section-body">Each pre-built graph lives at its own indexable URL. Open one, explore the entities, select any two, and generate new topic angles grounded in the relationship type that connects them.</p>
 
-    <p class="placeholder-note">Placeholder page — the interactive graph and pre-built domain graphs (SEO, AI Search, E-E-A-T, Schema, GEO, Entity SEO, Content Strategy) ship in Sprint 2.</p>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>SEO</h3>
+            <p>The full map of traditional SEO entities — technical, content, authority, analytics — and how they relate.</p>
+            <div class="tag-row"><span class="tag">/tool/seo/</span></div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3>AI Search</h3>
+            <p>How AI Overviews, LLMs, retrieval, and citation mechanics fit together into a single searchable system.</p>
+            <div class="tag-row"><span class="tag">/tool/ai-search/</span></div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>E-E-A-T</h3>
+            <p>The four trust signals and the entities that amplify, gate, or compose each one.</p>
+            <div class="tag-row"><span class="tag">/tool/eeat/</span></div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📐</div>
+            <h3>Schema Markup</h3>
+            <p>Schema types, their relationships to each other, and how they flow into Knowledge Graph inclusion.</p>
+            <div class="tag-row"><span class="tag">/tool/schema/</span></div>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>GEO</h3>
+            <p>Generative engine optimization — the entities and signals that drive brand citation in AI answers.</p>
+            <div class="tag-row"><span class="tag">/tool/geo/</span></div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🧭</div>
+            <h3>Entity SEO</h3>
+            <p>Entities, disambiguation, topical authority, and the links between them — the modern SEO core.</p>
+            <div class="tag-row"><span class="tag">/tool/entity-seo/</span></div>
+          </div>
+          <div class="card">
+            <div class="card-icon">✍️</div>
+            <h3>Content Strategy</h3>
+            <p>Clusters, pillars, cadence, and the entity-level decisions that determine whether any of it ranks.</p>
+            <div class="tag-row"><span class="tag">/tool/content-strategy/</span></div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🧪</div>
+            <h3>Explore</h3>
+            <p>Describe a domain of your own. The tool generates a graph on the fly and lets you explore intersections.</p>
+            <div class="tag-row"><span class="tag">/tool/explore/</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <span>&copy; Digital David G</span>
-    <span><a href="/about/">About David Garcia</a></span>
+    <div class="footer-left">© 2026 <span>David Garcia</span> · Long Beach, CA · digitaldavidg.com</div>
+    <div class="footer-links">
+      <a href="mailto:david@digitaldavidg.com">Email</a>
+      <a href="https://linkedin.com/in/digitaldavidg" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/digitaldavidg" target="_blank" rel="noopener">GitHub</a>
+    </div>
   </footer>
+
 </body>
 </html>

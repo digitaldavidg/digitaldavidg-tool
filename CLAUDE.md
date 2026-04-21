@@ -7,9 +7,15 @@ Session briefing for future Claude Code sessions. Load this first.
 ## What this project is
 
 `digitaldavidg.com` is a **static HTML site** deployed on Vercel. The root
-homepage (`/index.html`) exists as part of the live site and is owned by the
-user — **never modify it**. This repo adds a new **interactive knowledge
-graph tool** and an educational content hub alongside the existing home.
+homepage `/index.html` lives in a **separate repo**
+(`digitaldavidg/digitaldavidg.com`) that this session does **not** have MCP
+access to. This repo (`digitaldavidg-tool`) adds the **interactive knowledge
+graph tool** and educational content hub alongside the existing homepage.
+
+Both repos deploy to the same `digitaldavidg.com` host on Vercel (the user's
+deployment config routes them to a single domain). Never create or modify an
+`index.html` at the root of *this* repo — that would collide with the
+existing homepage.
 
 The tool lets a user describe a domain (e.g. "SEO", "AI search",
 "schema markup"), generates a visual entity-relationship graph, then lets
@@ -39,16 +45,42 @@ relationship types > this file.
 ## Tech stack
 
 - **Static HTML** + CSS (no framework). Vercel serves files as-is.
-- One shared stylesheet at `/assets/css/site.css` for new pages.
 - Each URL is a directory with an `index.html` (so `/learn/` → `/learn/index.html`).
-- **Do not touch the existing `/index.html`** at the repo root. Match its
-  visual style when building out new pages; never overwrite it.
+- Shared stylesheet at `/assets/css/site.css`. It mirrors the design tokens,
+  typography, and component patterns of the existing homepage so new pages
+  look like one continuous site.
+
+### Design tokens (must stay in sync with the homepage)
+
+- Background: `#080c10` (`--bg`)
+- Surface: `#0d1117` / `#161b22` (`--surface`, `--surface2`)
+- Border: `#21262d` (`--border`)
+- Text: `#e6edf3` / `#8b949e` / `#484f58` (`--text`, `--text-muted`, `--text-faint`)
+- Accent: `#58a6ff` primary, `#1f6feb` dim (`--accent`, `--accent-dim`)
+- Secondary: `#3fb950` green, `#d29922` orange, `#bc8cff` purple
+- Fonts: **Inter** (sans) + **JetBrains Mono** (mono), both via Google Fonts
+- Voice cues: `//` mono section labels, `em` inside h1 gets the blue→purple
+  gradient treatment, cards have a fading accent top-border on hover
+
+### Shared components in site.css
+
+- `nav.site-nav` — fixed, backdrop-blur, logo + links + CTA
+- `.page-hero` + `.page-hero-grid` + `.page-hero-glow` — homepage-style intro
+- `.section-label` — `// mono-label` heading eyebrow
+- `h1.page-title em` — gradient accent on italicized phrases
+- `.card` / `.card-grid` / `.card-icon` — matches homepage `.pillar-card`
+- `.tag` / `.tag-row` — mono pills
+- `.btn-primary` / `.btn-secondary`
+- `.code-block` with `.line-num`, `.line-kw`, `.line-fn`, `.line-str`,
+  `.line-cm`, `.line-op`, `.code-cursor` — reused on `/about/`
+- `.status-badge.status-placeholder` — mono pill that marks provisional pages
+- `footer.site-footer` — mirrors homepage footer exactly
 
 ## Site structure (scaffolded in Sprint 0)
 
 ```
-/                               # Existing homepage — DO NOT TOUCH
-/assets/css/site.css            # Shared styles for new pages (placeholder)
+/                               # Existing homepage (separate repo) — DO NOT TOUCH
+/assets/css/site.css            # Shared styles, matches homepage tokens
 /learn/index.html               # Learning hub (links to 5 pillars)
 /learn/knowledge-graphs/index.html
 /learn/eeat/index.html
@@ -80,8 +112,11 @@ canonicals.
 - JSON-LD: BreadcrumbList + (Article | WebPage | SoftwareApplication)
 - Person + Organization JSON-LD on `/about/` (the canonical entity anchors
   referenced by @id from every other page's Article schema)
-- Consistent `<header class="site-header">` with brand + nav (Tool / Learn /
-  About) and `<footer class="site-footer">`
+- Consistent `<nav class="site-nav">` with `digital<span>davidg</span>` logo
+  linking home, nav links (Tool / Learn / About) with `aria-current="page"`
+  on the active one, and a `Let's talk →` CTA pointing at `/#connect`
+  (the connect section on the homepage)
+- Consistent `<footer class="site-footer">` (email / LinkedIn / GitHub)
 - Visible `<h1>` matching the page's primary keyword
 - Breadcrumbs nav at the top of `<main>`
 
